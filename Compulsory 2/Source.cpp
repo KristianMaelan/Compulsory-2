@@ -76,7 +76,7 @@ void blackjack() {
 		Player1.points = 0;
 		Dealer.points = 0;
 
-		if ((playerbet <= Player1.money) && (playerbet <= Dealer.money)) //Controls the bet, if its not a legal bet, it prints error to user.
+		if ((playerbet <= Player1.money) && (playerbet <= Dealer.money) && (playerbet >= 10)) //Controls the bet, if its not a legal bet, it prints error to user.
 		{
 			validbet = 1;
 			std::cout << "You bet " << playerbet << " this round. Payout will be " << playerbet * 2 << "." << std::endl;
