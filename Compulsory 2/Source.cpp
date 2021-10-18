@@ -93,17 +93,6 @@ void blackjack() {
 			{
 				dealerturn();
 			}
-			else if (Player1.points > Dealer.points)
-			{
-				std::cout << " You won this round!";
-				system("break");
-			}
-			else if ((Dealer.points <= 21) || (Dealer.points >=Player1.points))
-			{
-				Player1.money = Player1.money - playerbet;
-				Dealer.money = Dealer.money + playerbet;
-				std::cout << "The dealer won this round!";
-			}
 		}
 		//invalid bet, 
 			else
@@ -119,9 +108,7 @@ void playerturn() { //Player1 turn, different enough from Dealer function to war
 	char draw = 'y';
 		while (draw == 'y')
 		{
-
 			std::cout << "You drew: " << card[carddraw].cardnumber << " of " << card[carddraw].house << std::endl;
-
 			if (card[carddraw].cardnumber == "Ace") //Lets user decide what to do when they draw an ace.
 			{
 				int acevalue = 0;
@@ -139,7 +126,6 @@ void playerturn() { //Player1 turn, different enough from Dealer function to war
 					break;
 				}
 			}
-
 			Player1.points = Player1.points + card[carddraw].cardvalue;
 			std::cout << "You currently have " << Player1.points << " points.";
 			if (Player1.points > 21)
@@ -165,17 +151,14 @@ void dealerturn() {
 			carddraw++;
 			system("cls");
 			std::cout << "Dealer drew: " << card[carddraw].cardnumber << " of " << card[carddraw].house << std::endl;
-
 			if (card[carddraw].cardnumber == "Ace")
 			{
 				if (Dealer.points < 11)
 				{
 					card[carddraw].cardvalue = 10;
 				}
-
 				std::cout << "Dealer drew an ace, Dealer has chosen its point value to be " << card[carddraw].cardvalue << std::endl;
 			}
-
 			Dealer.points = Dealer.points + card[carddraw].cardvalue;
 			std::cout << "The dealer now has " << Dealer.points << " points." << std::endl;
 			Sleep(2000);
